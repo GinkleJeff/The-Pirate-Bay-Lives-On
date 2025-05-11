@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Pirate Bay Tribute</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #0f0;
+      font-family: monospace;
+      padding: 2em;
+    }
+    h1 {
+      color: #0ff;
+      font-size: 3em;
+      text-align: center;
+    }
+    .section {
+      margin: 2em 0;
+    }
+    .banner {
+      font-size: 1.5em;
+      text-align: center;
+      margin-top: 1em;
+    }
+    .skull {
+      font-size: 4em;
+      text-align: center;
+      margin: 1em 0;
+    }
+    .terminal {
+      background-color: #000;
+      padding: 1em;
+      border: 1px solid #0f0;
+      margin-top: 1em;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <h1>🏴 The Pirate Bay: A Tribute 🏴</h1>
+  
+  <div class="skull">☠️</div>
+  
+  <div class="banner">
+    "You wouldn't download a car? We did."
+  </div>
+
+  <div class="section terminal" id="history">
+    > 2003: TPB is born from the Swedish shadows.
+    > 2006: First raid. Site returns stronger.
+    > 2009: Founders tried. Convicted. Became legends.
+    > 2014: Another raid. Another resurrection.
+    > 2025: Still alive. Still seeding.
+  </div>
+
+  <div class="section terminal" id="status">
+    > STATUS: ACTIVE
+    > SEEDING: CULTURE
+    > TRACKERS ONLINE
+  </div>
+
+  <div class="section terminal" id="quote">
+    > "The galaxy's most resilient torrent site."
+    > - Internet History, Volume I
+  </div>
+
+  <script>
+    // Add a fake seed counter
+    let seedCount = Math.floor(Math.random() * 1000000);
+    setInterval(() => {
+      seedCount += Math.floor(Math.random() * 100);
+      document.getElementById('status').innerHTML = `
+        > STATUS: ACTIVE
+        > SEEDING: CULTURE
+        > TOTAL SEEDS: ${seedCount}
+        > TRACKERS ONLINE
+      `;
+    }, 2000);
+  </script>
+</body>
+</html>
