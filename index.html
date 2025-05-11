@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pirate Bay Tribute</title>
   <style>
-    /* Body and Background */
+    /* Body and Background (Green Hacker Theme) */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background: linear-gradient(45deg, #ff0000, #0000ff);
+      background: linear-gradient(45deg, #00ff00, #008000);
       background-size: 400% 400%;
       animation: gradientBG 15s ease infinite;
       color: white;
@@ -50,15 +50,15 @@
 
     /* Skull Animation */
     .skull {
-      width: 50px;
-      height: 50px;
-      background-color: #fff;
-      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      background-image: url('skull.png');
+      background-size: cover;
       animation: floatSkull 5s ease-in-out infinite;
       position: absolute;
-      top: 50%;
+      top: 10%;
       left: 50%;
-      transform: translate(-50%, -50%);
+      transform: translateX(-50%);
     }
 
     @keyframes floatSkull {
@@ -159,6 +159,16 @@
       color: #ff9800;
     }
 
+    /* Page Sections */
+    .page-section {
+      display: none;
+      padding: 20px;
+    }
+
+    .active {
+      display: block;
+    }
+
   </style>
 </head>
 <body>
@@ -166,14 +176,28 @@
   <!-- Navigation Bar -->
   <nav>
     <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#credits">Credits</a></li>
+      <li><a href="#" onclick="showPage('home')">Home</a></li>
+      <li><a href="#" onclick="showPage('about')">About</a></li>
+      <li><a href="#" onclick="showPage('credits')">Credits</a></li>
     </ul>
   </nav>
 
-  <!-- Pirate Skull Animation -->
-  <div class="skull"></div>
+  <!-- Page Content -->
+  <div id="home" class="page-section active">
+    <div class="skull"></div>
+    <h1>Welcome to the Pirate Bay Tribute!</h1>
+    <p>This is a tribute to The Pirate Bay, the legendary pirate of the internet!</p>
+  </div>
+
+  <div id="about" class="page-section">
+    <h2>About This Site</h2>
+    <p>This website is a tribute to the spirit of freedom and the pioneers of digital piracy. It represents the chaos and excitement of the internet’s open seas.</p>
+  </div>
+
+  <div id="credits" class="page-section">
+    <h2>Credits</h2>
+    <p>This site was created by Pirate Crew! Big thanks to The Pirate Bay for inspiration and to everyone who contributes to the free flow of information.</p>
+  </div>
 
   <!-- Parallax Section -->
   <div class="parallax"></div>
@@ -213,6 +237,14 @@
     // Easter Egg function
     function showEgg() {
       document.getElementById('eggMessage').style.display = 'block';
+    }
+
+    // Show Pages
+    function showPage(page) {
+      const sections = document.querySelectorAll('.page-section');
+      sections.forEach(section => section.classList.remove('active'));
+
+      document.getElementById(page).classList.add('active');
     }
   </script>
 
