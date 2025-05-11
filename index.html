@@ -2,81 +2,219 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>The Pirate Bay Tribute</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pirate Bay Tribute</title>
   <style>
+    /* Body and Background */
     body {
-      background-color: #111;
-      color: #0f0;
-      font-family: monospace;
-      padding: 2em;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(45deg, #ff0000, #0000ff);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      color: white;
     }
-    h1 {
-      color: #0ff;
-      font-size: 3em;
-      text-align: center;
+
+    @keyframes gradientBG {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
     }
-    .section {
-      margin: 2em 0;
+
+    /* Navigation Bar */
+    nav ul {
+      list-style-type: none;
+      display: flex;
+      justify-content: space-around;
+      background-color: #222;
+      padding: 10px;
     }
-    .banner {
-      font-size: 1.5em;
-      text-align: center;
-      margin-top: 1em;
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 10px;
     }
+
+    nav a:hover {
+      background-color: #444;
+      border-radius: 5px;
+    }
+
+    /* Skull Animation */
     .skull {
-      font-size: 4em;
-      text-align: center;
-      margin: 1em 0;
+      width: 50px;
+      height: 50px;
+      background-color: #fff;
+      border-radius: 50%;
+      animation: floatSkull 5s ease-in-out infinite;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
-    .terminal {
-      background-color: #000;
-      padding: 1em;
-      border: 1px solid #0f0;
-      margin-top: 1em;
-      white-space: pre-wrap;
+
+    @keyframes floatSkull {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-30px);
+      }
+      100% {
+        transform: translateY(0);
+      }
     }
+
+    /* Parallax Effect */
+    .parallax {
+      background-image: url('parallax-image.jpg');
+      height: 100vh;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    /* Music Player */
+    audio {
+      display: block;
+      margin: 20px auto;
+    }
+
+    /* Footer with Social Links */
+    footer ul {
+      list-style-type: none;
+      display: flex;
+      justify-content: center;
+      background-color: #222;
+      padding: 10px;
+    }
+
+    footer a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: #f0f0f0;
+    }
+
+    /* Scrollable Pirate Quotes */
+    .quote-section {
+      width: 100%;
+      height: 100px;
+      overflow: hidden;
+    }
+
+    .quote-section p {
+      animation: scrollQuotes 10s linear infinite;
+    }
+
+    @keyframes scrollQuotes {
+      0% {
+        transform: translateY(100%);
+      }
+      100% {
+        transform: translateY(-100%);
+      }
+    }
+
+    /* Skull Hover Effect */
+    .skull-hover {
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .skull-hover:hover {
+      transform: rotate(360deg);
+    }
+
+    /* Easter Egg Button */
+    #easterEggButton {
+      margin: 20px;
+      padding: 10px 20px;
+      background-color: #ff5722;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    #easterEggButton:hover {
+      background-color: #f44336;
+    }
+
+    #eggMessage {
+      display: none;
+      margin-top: 20px;
+      font-size: 20px;
+      color: #ff9800;
+    }
+
   </style>
 </head>
 <body>
-  <h1>🏴 The Pirate Bay: A Tribute 🏴</h1>
-  
-  <div class="skull">☠️</div>
-  
-  <div class="banner">
-    "You wouldn't download a car? We did."
+
+  <!-- Navigation Bar -->
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#credits">Credits</a></li>
+    </ul>
+  </nav>
+
+  <!-- Pirate Skull Animation -->
+  <div class="skull"></div>
+
+  <!-- Parallax Section -->
+  <div class="parallax"></div>
+
+  <!-- Music Player -->
+  <audio controls>
+    <source src="your-song.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Scrollable Pirate Quotes -->
+  <div class="quote-section">
+    <p>"Yo ho ho, and a bottle of rum!"</p>
+    <p>"Arr matey, ye be warned!"</p>
+    <p>"Thar she blows!"</p>
   </div>
 
-  <div class="section terminal" id="history">
-    > 2003: TPB is born from the Swedish shadows.
-    > 2006: First raid. Site returns stronger.
-    > 2009: Founders tried. Convicted. Became legends.
-    > 2014: Another raid. Another resurrection.
-    > 2025: Still alive. Still seeding.
+  <!-- Easter Egg Button -->
+  <button id="easterEggButton" onclick="showEgg()">Click me!</button>
+  <div id="eggMessage">
+    <p>🦜Arr, ye found the treasure!⚓</p>
   </div>
 
-  <div class="section terminal" id="status">
-    > STATUS: ACTIVE
-    > SEEDING: CULTURE
-    > TRACKERS ONLINE
-  </div>
+  <!-- Skull Hover Effect (Example image) -->
+  <img src="skull.png" alt="Skull" class="skull-hover" width="50" height="50">
 
-  <div class="section terminal" id="quote">
-    > "The galaxy's most resilient torrent site."
-    > - Internet History, Volume I
-  </div>
+  <!-- Footer with Social Links -->
+  <footer>
+    <ul>
+      <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
+      <li><a href="https://facebook.com" target="_blank">Facebook</a></li>
+      <li><a href="https://thepiratebay.org" target="_blank">The Pirate Bay</a></li>
+    </ul>
+  </footer>
 
   <script>
-    // Add a fake seed counter
-    let seedCount = Math.floor(Math.random() * 1000000);
-    setInterval(() => {
-      seedCount += Math.floor(Math.random() * 100);
-      document.getElementById('status').innerHTML = `
-        > STATUS: ACTIVE
-        > SEEDING: CULTURE
-        > TOTAL SEEDS: ${seedCount}
-        > TRACKERS ONLINE
-      `;
-    }, 2000);
+    // Easter Egg function
+    function showEgg() {
+      document.getElementById('eggMessage').style.display = 'block';
+    }
   </script>
+
 </body>
 </html>
